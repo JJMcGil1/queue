@@ -16,8 +16,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
+
+      - name: Disable Spotlight indexing (hdiutil flakiness fix)
+        run: sudo mdutil -a -i off
 
       - name: Install dependencies
         run: npm ci
