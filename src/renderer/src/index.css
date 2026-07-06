@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/outfit';
+
+@theme {
+  --font-sans: 'Outfit Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #0b0b0c;
+  --color-surface: #151517;
+  --color-raised: #1d1d20;
+  --color-line: rgb(255 255 255 / 0.07);
+  --color-ink: #f4f4f5;
+  --color-muted: #98989f;
+  --color-accent: #e2b357;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-drag {
+  -webkit-app-region: drag;
+}
+
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+::selection {
+  background: rgb(226 179 87 / 0.3);
+}
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}

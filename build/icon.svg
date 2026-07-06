@@ -1,0 +1,67 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#232329"/>
+      <stop offset="1" stop-color="#101014"/>
+    </linearGradient>
+    <linearGradient id="strip" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#f4ca78"/>
+      <stop offset="1" stop-color="#d18f2c"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c21"/>
+      <stop offset="1" stop-color="#101014"/>
+    </linearGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="28" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <clipPath id="sq"><rect x="100" y="100" width="824" height="824" rx="186"/></clipPath>
+  </defs>
+  <g clip-path="url(#sq)">
+    <rect x="100" y="100" width="824" height="824" fill="url(#bg)"/>
+    <g transform="translate(512,512) rotate(-10)">
+      <g filter="url(#shadow)">
+        <rect x="-224" y="-620" width="448" height="1240" fill="url(#strip)"/>
+      </g>
+      <rect x="-224" y="-620" width="448" height="1240" fill="url(#sheen)"/>
+      <g fill="#17171b">
+        <rect x="-203" y="-538" width="38" height="38" rx="10"/>
+        <rect x="-203" y="-454" width="38" height="38" rx="10"/>
+        <rect x="-203" y="-370" width="38" height="38" rx="10"/>
+        <rect x="-203" y="-286" width="38" height="38" rx="10"/>
+        <rect x="-203" y="-202" width="38" height="38" rx="10"/>
+        <rect x="-203" y="-118" width="38" height="38" rx="10"/>
+        <rect x="-203" y="-34" width="38" height="38" rx="10"/>
+        <rect x="-203" y="50" width="38" height="38" rx="10"/>
+        <rect x="-203" y="134" width="38" height="38" rx="10"/>
+        <rect x="-203" y="218" width="38" height="38" rx="10"/>
+        <rect x="-203" y="302" width="38" height="38" rx="10"/>
+        <rect x="-203" y="386" width="38" height="38" rx="10"/>
+        <rect x="-203" y="470" width="38" height="38" rx="10"/>
+        <rect x="165" y="-538" width="38" height="38" rx="10"/>
+        <rect x="165" y="-454" width="38" height="38" rx="10"/>
+        <rect x="165" y="-370" width="38" height="38" rx="10"/>
+        <rect x="165" y="-286" width="38" height="38" rx="10"/>
+        <rect x="165" y="-202" width="38" height="38" rx="10"/>
+        <rect x="165" y="-118" width="38" height="38" rx="10"/>
+        <rect x="165" y="-34" width="38" height="38" rx="10"/>
+        <rect x="165" y="50" width="38" height="38" rx="10"/>
+        <rect x="165" y="134" width="38" height="38" rx="10"/>
+        <rect x="165" y="218" width="38" height="38" rx="10"/>
+        <rect x="165" y="302" width="38" height="38" rx="10"/>
+        <rect x="165" y="386" width="38" height="38" rx="10"/>
+        <rect x="165" y="470" width="38" height="38" rx="10"/>
+      </g>
+      <g fill="url(#frame)">
+        <rect x="-136" y="-500" width="272" height="296" rx="18"/>
+        <rect x="-136" y="-148" width="272" height="296" rx="18"/>
+        <rect x="-136" y="204" width="272" height="296" rx="18"/>
+      </g>
+    </g>
+  </g>
+  <rect x="103" y="103" width="818" height="818" rx="183" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="6"/>
+</svg>
