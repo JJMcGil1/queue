@@ -11,6 +11,9 @@ permissions:
 jobs:
   release:
     runs-on: macos-14
+    strategy:
+      matrix:
+        arch: [arm64, x64]
     steps:
       - uses: actions/checkout@v4
 
@@ -28,8 +31,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Package and publish DMG
-        run: npx electron-builder --mac --publish always
+      - name: Package and publish DMG (${{ matrix.arch }})
+        run: npx electron-builder --mac --${{ matrix.arch }} --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: 'false'
