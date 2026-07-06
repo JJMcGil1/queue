@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow, ipcMain, nativeImage } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, nativeImage, dialog } from 'electron'
 import { join } from 'path'
 import { initDb, listItems, createItem, updateItem, deleteItem } from './db'
 import type { ItemInput, ItemPatch } from '../shared/types'
@@ -39,7 +39,14 @@ app.whenReady().then(() => {
     if (!icon.isEmpty()) app.dock.setIcon(icon)
   }
 
-  initDb()
+  try {
+    initDb()
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err)
+    dialog.showErrorBox('Queue failed to start', `Could not open the local database:\n\n${message}`)
+    app.quit()
+    return
+  }
 
   ipcMain.handle('items:list', () => listItems())
   ipcMain.handle('items:create', (_e, input: ItemInput) => createItem(input))

@@ -1,6 +1,6 @@
 {
   "name": "queue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A personal watchlist for movies, shows, and documentaries",
   "main": "./out/main/index.js",
   "author": "Justin McGill",
