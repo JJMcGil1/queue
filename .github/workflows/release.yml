@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  release:
+  build:
     runs-on: macos-14
     strategy:
       matrix:
@@ -31,8 +31,37 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Package and publish DMG (${{ matrix.arch }})
-        run: npx electron-builder --mac --${{ matrix.arch }} --publish always
+      - name: Package DMG (${{ matrix.arch }})
+        run: npx electron-builder --mac --${{ matrix.arch }}
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dmg-${{ matrix.arch }}
+          path: |
+            dist/*.dmg
+            dist/*.blockmap
+          retention-days: 1
+
+  release:
+    needs: build
+    runs-on: macos-14
+    steps:
+      - name: Download all DMGs
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: dmg-*
+          merge-multiple: true
+
+      - name: Create GitHub release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          gh release create "$tag" dist/*.dmg dist/*.blockmap \
+            --repo "${GITHUB_REPOSITORY}" \
+            --title "Queue ${tag#v}" \
+            --generate-notes
